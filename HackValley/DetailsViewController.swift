@@ -13,10 +13,10 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     
-    let coordinate: CLLocation = CLLocation(latitude: MyVars.lat[MyVars.selected], longitude: MyVars.long[MyVars.selected])
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let coordinate: CLLocation = CLLocation(latitude: MyVars.lat[MyVars.selected], longitude: MyVars.long[MyVars.selected])
         
         CLGeocoder().reverseGeocodeLocation(coordinate) { (placemarks, error) in
             if error != nil {
@@ -37,6 +37,7 @@ class DetailsViewController: UIViewController {
                     }
                     
                     self.label.text = "Address: \(address)"
+                    print(coordinate)
                     
                 }
             }
@@ -44,6 +45,8 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func go(_ sender: Any) {
+        
+        let coordinate: CLLocation = CLLocation(latitude: MyVars.lat[MyVars.selected], longitude: MyVars.long[MyVars.selected])
         
         CLGeocoder().reverseGeocodeLocation(coordinate) { (placemarks, error) in
             

@@ -59,8 +59,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //print(latitude)
         //print(longitude)
         
-        let latDelta: CLLocationDegrees = 0.01
-        let longDelta: CLLocationDegrees = 0.01
+        let latDelta: CLLocationDegrees = 0.1
+        let longDelta: CLLocationDegrees = 0.1
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
@@ -70,7 +70,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let latdif = (latitude-MyVars.lat[count])*(latitude-MyVars.lat[count])
             let longdif = (longitude-MyVars.long[count])*(longitude-MyVars.long[count])
             
-            if (latdif + longdif).squareRoot() < 10 && MyVars.status[count] == true {
+            if (latdif + longdif).squareRoot() < 0.05 && MyVars.status[count] == true {
                 self.displayAlert(title: "Flash Sale!", message: MyVars.names[count])
                 MyVars.status[count] = false
             }
