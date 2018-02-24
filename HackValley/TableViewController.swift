@@ -15,10 +15,53 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        MyVars.lat.append(37.4045589)
-        MyVars.long.append(-122.18679358)
+        if let url = URL(string: "http://local-flash-sale.test/api/stores/1") {
+
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                
+                if error != nil {
+                    print(error as Any)
+                }
+                else{
+                    if let urlContent = data {
+                        
+                        do{
+                            let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            print(jsonResult)
+                            //print(jsonResult["store"])
+                            
+                            if let store = jsonResult["store"] as? NSDictionary {
+                                MyVars.names.append((store["name"] as? String)!)
+                                print(MyVars.names)
+                                MyVars.lat.append((store["latitude"] as! NSString).doubleValue)
+                                MyVars.long.append((store["longitude"] as! NSString).doubleValue)
+                                MyVars.status.append(true)
+                                
+                                DispatchQueue.main.async { // Correct
+                                    self.tableView.reloadData()
+                                }
+                        
+                            }
+                    
+                        }catch{
+                            print("JSON Process Error")
+                        }
+                        
+                    }
+                }
+                
+            }
+            task.resume()
+        }
+        /*else{
+            self.label.text = "Oops! We can't seem to find the weather there :("
+            self.textField.text = ""
+        }*/
+        
+        /*MyVars.lat.append(43.7866575)
+        MyVars.long.append(-79.1896812)
         MyVars.names.append("famlets")
-        MyVars.status.append(true)
+        MyVars.status.append(true)*/
         
         if firstTime == true {
             performSegue(withIdentifier: "toMap", sender: nil)
