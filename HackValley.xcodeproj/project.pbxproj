@@ -14,6 +14,8 @@
 		ECC89F4B20413A9F003FF371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC89F4920413A9F003FF371 /* LaunchScreen.storyboard */; };
 		ECC89F5620413A9F003FF371 /* HackValleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89F5520413A9F003FF371 /* HackValleyTests.swift */; };
 		ECC89F6120413A9F003FF371 /* HackValleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89F6020413A9F003FF371 /* HackValleyUITests.swift */; };
+		ECC89F6F20414AFC003FF371 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89F6E20414AFC003FF371 /* TableViewController.swift */; };
+		ECC89F71204155A6003FF371 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89F70204155A6003FF371 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		ECC89F5C20413A9F003FF371 /* HackValleyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackValleyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC89F6020413A9F003FF371 /* HackValleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackValleyUITests.swift; sourceTree = "<group>"; };
 		ECC89F6220413A9F003FF371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECC89F6E20414AFC003FF371 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		ECC89F70204155A6003FF371 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,9 @@
 			children = (
 				ECC89F4020413A9F003FF371 /* AppDelegate.swift */,
 				ECC89F4220413A9F003FF371 /* ViewController.swift */,
+				ECC89F6E20414AFC003FF371 /* TableViewController.swift */,
 				ECC89F4420413A9F003FF371 /* Main.storyboard */,
+				ECC89F70204155A6003FF371 /* DetailsViewController.swift */,
 				ECC89F4720413A9F003FF371 /* Assets.xcassets */,
 				ECC89F4920413A9F003FF371 /* LaunchScreen.storyboard */,
 				ECC89F4C20413A9F003FF371 /* Info.plist */,
@@ -260,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC89F4320413A9F003FF371 /* ViewController.swift in Sources */,
+				ECC89F6F20414AFC003FF371 /* TableViewController.swift in Sources */,
 				ECC89F4120413A9F003FF371 /* AppDelegate.swift in Sources */,
+				ECC89F71204155A6003FF371 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
