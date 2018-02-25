@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var list: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var product = [String]()
     var price = [Float]()
@@ -23,9 +24,27 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //print(MyVars.special)
         
         let temp = Int(MyVars.special)
+        
+        if temp == 3 {
+            imageView.image = UIImage(named: "Food Basics.png")
+        }
+        else if temp == 2 {
+            imageView.image = UIImage(named: "Longos.png")
+        }
+        else if temp == 1 {
+            imageView.image = UIImage(named: "Sobeys.png")
+        }
+        else if temp == 5 {
+            imageView.image = UIImage(named: "Metro.png")
+        }
+        else{
+            imageView.image = UIImage(named: "No frills.png")
+        }
+        
         //print(temp)
         
         if let url = URL(string: "http://local-flash-sale.test/api/stores/\(temp)/products") {
@@ -52,7 +71,7 @@ class DetailsViewController: UIViewController {
                                         self.price.append((item["price"] as? Float)!)
                                         self.unit.append((item["unit"] as? String)!)
                                         
-                                        self.line += "\(self.product[i]) \n \(self.price[i]) \(self.unit[i]) \n \n"
+                                        self.line += "\(self.product[i]) - \(self.price[i]) \(self.unit[i]) \n \n"
                                         i+=1
                                         //print(i)
                                         
@@ -64,6 +83,7 @@ class DetailsViewController: UIViewController {
                                 
                                 DispatchQueue.main.async { // Correct
                                     self.list.text = self.line
+                                    self.list.sizeToFit()
                                     //print(self.product)
                                 }
                                 

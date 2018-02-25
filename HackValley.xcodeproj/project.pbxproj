@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC18BB5E20430B7E00574B93 /* Metro.png in Resources */ = {isa = PBXBuildFile; fileRef = EC18BB5920430B7D00574B93 /* Metro.png */; };
+		EC18BB6020430B7E00574B93 /* No frills.png in Resources */ = {isa = PBXBuildFile; fileRef = EC18BB5B20430B7E00574B93 /* No frills.png */; };
+		EC18BB6120430B7E00574B93 /* Food Basics.png in Resources */ = {isa = PBXBuildFile; fileRef = EC18BB5C20430B7E00574B93 /* Food Basics.png */; };
+		EC18BB6220430B7E00574B93 /* Sobeys.png in Resources */ = {isa = PBXBuildFile; fileRef = EC18BB5D20430B7E00574B93 /* Sobeys.png */; };
+		EC18BB662043122800574B93 /* Longos.png in Resources */ = {isa = PBXBuildFile; fileRef = EC18BB652043122800574B93 /* Longos.png */; };
 		ECC89F4120413A9F003FF371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89F4020413A9F003FF371 /* AppDelegate.swift */; };
 		ECC89F4320413A9F003FF371 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89F4220413A9F003FF371 /* ViewController.swift */; };
 		ECC89F4620413A9F003FF371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC89F4420413A9F003FF371 /* Main.storyboard */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC18BB5920430B7D00574B93 /* Metro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Metro.png; sourceTree = "<group>"; };
+		EC18BB5B20430B7E00574B93 /* No frills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "No frills.png"; sourceTree = "<group>"; };
+		EC18BB5C20430B7E00574B93 /* Food Basics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Food Basics.png"; sourceTree = "<group>"; };
+		EC18BB5D20430B7E00574B93 /* Sobeys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sobeys.png; sourceTree = "<group>"; };
+		EC18BB652043122800574B93 /* Longos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Longos.png; sourceTree = "<group>"; };
 		ECC89F3D20413A9F003FF371 /* HackValley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackValley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC89F4020413A9F003FF371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC89F4220413A9F003FF371 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +119,11 @@
 				ECC89F4720413A9F003FF371 /* Assets.xcassets */,
 				ECC89F4920413A9F003FF371 /* LaunchScreen.storyboard */,
 				ECC89F4C20413A9F003FF371 /* Info.plist */,
+				EC18BB652043122800574B93 /* Longos.png */,
+				EC18BB5C20430B7E00574B93 /* Food Basics.png */,
+				EC18BB5920430B7D00574B93 /* Metro.png */,
+				EC18BB5B20430B7E00574B93 /* No frills.png */,
+				EC18BB5D20430B7E00574B93 /* Sobeys.png */,
 			);
 			path = HackValley;
 			sourceTree = "<group>";
@@ -239,8 +254,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC89F4B20413A9F003FF371 /* LaunchScreen.storyboard in Resources */,
+				EC18BB6220430B7E00574B93 /* Sobeys.png in Resources */,
 				ECC89F4820413A9F003FF371 /* Assets.xcassets in Resources */,
+				EC18BB6120430B7E00574B93 /* Food Basics.png in Resources */,
 				ECC89F4620413A9F003FF371 /* Main.storyboard in Resources */,
+				EC18BB5E20430B7E00574B93 /* Metro.png in Resources */,
+				EC18BB6020430B7E00574B93 /* No frills.png in Resources */,
+				EC18BB662043122800574B93 /* Longos.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
