@@ -15,7 +15,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var list: UILabel!
     
     var product = [String]()
-    var price = [String]()
+    var price = [Float]()
     var unit = [String]()
     
     var line = ""
@@ -23,9 +23,12 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(MyVars.special)
+        //print(MyVars.special)
         
-        if let url = URL(string: "http://local-flash-sale.test/api/stores/1/sales") {
+        let temp = Int(MyVars.special)
+        //print(temp)
+        
+        if let url = URL(string: "http://local-flash-sale.test/api/stores/\(temp)/products") {
             
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 
@@ -40,22 +43,24 @@ class DetailsViewController: UIViewController {
                             let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                             //print(jsonResult)
                             
-                            if let sales = jsonResult["sales"] as? NSMutableArray {
+                            if let products = jsonResult["products"] as? NSMutableArray {
                                 var i = 0
-                                for count in sales {
+                                for count in products {
                                     if let item = count as? NSDictionary {
                                     
-                                        self.product.append((item["product_name"] as? String)!)
-                                        self.price.append((item["sale_price"] as? String)!)
+                                        self.product.append((item["name"] as? String)!)
+                                        self.price.append((item["price"] as? Float)!)
                                         self.unit.append((item["unit"] as? String)!)
                                         
                                         self.line += "\(self.product[i]) \n \(self.price[i]) \(self.unit[i]) \n \n"
                                         i+=1
+                                        //print(i)
                                         
                                     }
                                         
                                 }
                                 
+                                //print(self.product)
                                 
                                 DispatchQueue.main.async { // Correct
                                     self.list.text = self.line

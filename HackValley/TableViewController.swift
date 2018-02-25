@@ -37,7 +37,7 @@ class TableViewController: UITableViewController {
                             
                             do{
                                 let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                                print(jsonResult)
+                                //print(jsonResult)
                                 //print(jsonResult["store"])
                                 
                                 if let store = jsonResult["store"] as? NSDictionary {
@@ -118,7 +118,7 @@ class TableViewController: UITableViewController {
         
         MyVars.special = MyVars.detail[indexPath.row]
         MyVars.selected = indexPath.row
-        print(MyVars.selected)
+        //print(MyVars.selected)
         
     }
     
