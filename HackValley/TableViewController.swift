@@ -42,10 +42,11 @@ class TableViewController: UITableViewController {
                                 
                                 if let store = jsonResult["store"] as? NSDictionary {
                                     MyVars.names.append((store["name"] as? String)!)
-                                    print(MyVars.names)
+                                    //print(MyVars.names)
                                     MyVars.lat.append((store["latitude"] as! NSString).doubleValue)
                                     MyVars.long.append((store["longitude"] as! NSString).doubleValue)
                                     MyVars.status.append(true)
+                                    MyVars.detail.append(store["id"] as! Float)
                                     num+=1
                                     //print(num)
                                     
@@ -114,8 +115,11 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        MyVars.special = MyVars.detail[indexPath.row]
         MyVars.selected = indexPath.row
         print(MyVars.selected)
+        
     }
     
     

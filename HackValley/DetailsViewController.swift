@@ -12,15 +12,78 @@ import MapKit
 class DetailsViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var list: UILabel!
+    
+    var product = [String]()
+    var price = [String]()
+    var unit = [String]()
+    
+    var line = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(MyVars.special)
+        
+        if let url = URL(string: "http://local-flash-sale.test/api/stores/1/sales") {
+            
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                
+                if error != nil {
+                    print(error as Any)
+                    
+                }
+                else{
+                    if let urlContent = data {
+                        
+                        do{
+                            let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            //print(jsonResult)
+                            
+                            if let sales = jsonResult["sales"] as? NSMutableArray {
+                                var i = 0
+                                for count in sales {
+                                    if let item = count as? NSDictionary {
+                                    
+                                        self.product.append((item["product_name"] as? String)!)
+                                        self.price.append((item["sale_price"] as? String)!)
+                                        self.unit.append((item["unit"] as? String)!)
+                                        
+                                        self.line += "\(self.product[i]) \n \(self.price[i]) \(self.unit[i]) \n \n"
+                                        i+=1
+                                        
+                                    }
+                                        
+                                }
+                                
+                                
+                                DispatchQueue.main.async { // Correct
+                                    self.list.text = self.line
+                                    //print(self.product)
+                                }
+                                
+                            }
+                            
+                            
+                        }catch{
+                            print("Json Error")
+                        }
+                        
+                    }
+                }
+                
+            }
+            task.resume()
+        }
+        
+        
+        //
         
         let coordinate: CLLocation = CLLocation(latitude: MyVars.lat[MyVars.selected], longitude: MyVars.long[MyVars.selected])
         
         CLGeocoder().reverseGeocodeLocation(coordinate) { (placemarks, error) in
             if error != nil {
-                print(error)
+                print(error as Any)
             }
             else{
                 
@@ -37,7 +100,7 @@ class DetailsViewController: UIViewController {
                     }
                     
                     self.label.text = "Address: \(address)"
-                    print(coordinate)
+                    //print(coordinate)
                     
                 }
             }
@@ -51,7 +114,7 @@ class DetailsViewController: UIViewController {
         CLGeocoder().reverseGeocodeLocation(coordinate) { (placemarks, error) in
             
             if error != nil {
-                print(error)
+                print(error as Any)
             }
             else{
                 if let placemark = placemarks?[0] {

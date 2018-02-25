@@ -16,6 +16,8 @@ struct MyVars {
     static var names = [String]()
     static var status = [Bool]()
     static var selected = 0
+    static var detail = [Float]()
+    static var special = Float(0.0)
 }
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -71,7 +73,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let longdif = (longitude-MyVars.long[count])*(longitude-MyVars.long[count])
             
             if (latdif + longdif).squareRoot() < 0.05 && MyVars.status[count] == true {
-                self.displayAlert(title: "Flash Sale!", message: MyVars.names[count])
+                self.displayAlert(title: "Snack Overload!", message: MyVars.names[count])
                 MyVars.status[count] = false
             }
             
